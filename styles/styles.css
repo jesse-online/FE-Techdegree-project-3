@@ -238,6 +238,7 @@ Media queries
 
   .label-contact {
     flex: 1 33%;
+    max-width: 33%;
     margin: 0;
     padding: 1em 0;
   }
