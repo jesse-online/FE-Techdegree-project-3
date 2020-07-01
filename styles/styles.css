@@ -1,5 +1,5 @@
 /****************
-Basic styles
+Basic element-level styles
 ****************/
 
 * {
@@ -14,14 +14,20 @@ body {
     font-family: 'Merriweather Sans', serif;
 }
 
-h1,
-h2 {
-    color: #2d3945;
+h1 {
+    font-size: 1.5em;
+    padding: .5em 0;
+    color: #fff;
+    text-transform: uppercase;
 }
 
-/*
+h2 {
+    color: #282131;
+}
+
+/****************
 Main styles
-*/
+****************/
 
 #wrapper {
     padding: 0 1em;
@@ -31,13 +37,8 @@ Main styles
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #2d3945;
+    background-color: #40344e;
     
-}
-
-#title {
-    color: #fff;
-    text-transform: uppercase;
 }
 
 #main-content {
@@ -49,7 +50,7 @@ Main styles
     flex-direction: column;
     align-items: center;
     padding: 2em 0;
-    border-bottom: 5px solid #2d3945;
+    border-bottom: 5px solid #40344e;
 }
 
 #intro h2 {
@@ -58,7 +59,7 @@ Main styles
 
 #intro p,
 #main-footer span {
-    color: #aaafb4;
+    color: #92969b;
 }
 
 #intro p {
@@ -70,8 +71,13 @@ Main styles
 #form {
     margin-top: .3em; /* Define distance between two borders dividing #intro and #form */
     margin-bottom: 2em;
-    padding-top: 1.5em;
-    border-top: 3px solid #2d3945;
+    padding: 1.5em 1em 1em;
+    border-top: 3px solid #40344e;
+    background-color: #ded5e4;
+}
+
+#form h2 {
+    color: #3F334D;
 }
 
 #contact-info, 
@@ -82,15 +88,27 @@ Main styles
 }
 
 #contact-info {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 3px solid #46698b;
-    padding-bottom: 3em;
+    border-bottom: 3px solid #40344e;
+    padding-bottom: 2em;
 }
 
 #form label,
-#form p {
-    color: #55687a;
+#form p,
+#newsletter h3 {
+    color: #5d4b72;
+}
+
+#contact-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#contact-list li {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 1.5em;
+    align-items: center;
 }
 
 .label-contact,
@@ -105,6 +123,16 @@ Main styles
     border-radius: 5px;
     padding: 1em;
     background-color: #eff0f1;
+    transition: background-color .3s; /* Lay groundwork for :focus background-color transition */
+}
+
+.input-contact:focus,
+#suggestions:focus {
+    box-shadow: 0 0 0 2px #40344e;
+    outline: none;
+    color: #fff;
+    background-color: #82738a; /* Background-color for transition */
+    
 }
 
 .input-contact {
@@ -120,15 +148,13 @@ Main styles
     padding-right: 1em;
 }
 
-.input-contact:focus,
-#suggestions:focus {
-    box-shadow: 0 0 0 2px #46698b;
-    outline: none;
-    
-}
-
 .label-contact {
     margin: .5em 0;
+}
+
+#zip {
+    min-width: initial;
+    max-width: 175px;
 }
 
 #newsletter h2 {
@@ -138,24 +164,23 @@ Main styles
 #newsletter h3 {
     font-size: inherit;
     font-weight: normal;
-    color: #55687a;
 }
 
 .spaced-heading {
     margin-top: 2em;
 }
 
-.item-list {
+.newsletter-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.item-list li {
+.newsletter-list li {
     margin-bottom: 1em;
 }
 
-.item-list li label {
+.newsletter-list li label {
     margin-left: .5em;
 }
 
@@ -165,17 +190,62 @@ Main styles
 }
 
 #button-submit {
-    margin-top: 1.5em;
+    margin: 1.5em 0 1em;
     width: 100%;
     height: 75px;
     border: none;
     border-radius: 5px;
-    background-color: #4ebbb5;
+    background-color: #3E8989;
     font-size: 1.5em;
     color: #fff;
+    cursor: pointer;
 }
 
 #main-footer {
-    text-align: center;
-    padding-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2em;
+}
+
+/****************
+Media queries
+****************/
+
+@media (min-width: 768px) {
+  
+  #wrapper {
+      width: 75%;
+      max-width: 800px;
+      align-self: center;
+  }
+
+  #intro {
+      padding: 2.5em 0;
+  }
+
+  .label-contact,
+  .input-contact {
+      min-width: initial;
+  }
+
+  .label-contact {
+    flex: 1 33%;
+    max-width: 33%;
+    margin: 0;
+    padding: 1em 0;
+  }
+
+  .input-contact {
+    flex: 2 67%;
+    margin: 0;
+  }
+
+  #zip {
+      margin-right: initial;
+  }
+
+  #main-footer {
+      margin-top: 3em;
+      margin-bottom: 3em;
+  }
 }
